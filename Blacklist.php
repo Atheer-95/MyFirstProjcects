@@ -15,7 +15,6 @@ $criminals = array(
         'name'=>'Fusaku Sano',
         'age'=>'29',
         'depiction'=>'Short, black hair of medium length, Asian features  ',
-        'state'=>false,
         'id'=>2
     ),
     array(
@@ -30,7 +29,6 @@ $criminals = array(
         'name'=>'Vgang Priklopil ',
         'age'=>'34',
         'depiction'=>'Short, white-skinned, meduim street hair  ',
-        'state'=>false,
         'id'=>4
     ),
 
@@ -47,7 +45,6 @@ $criminals = array(
         'name'=>'Kenneth Barnella',
         'age'=>'60',
         'depiction'=>'Short, white-skinned, white hair',
-        'state'=>false,
         'id'=>6
     ),
 
@@ -64,7 +61,6 @@ $criminals = array(
         'name'=>'David',
         'age'=>'39',
         'depiction'=>'Tall, white-skinned, short black hair, glasses',
-        'state'=>false,
         'id'=>8
     ),
 
@@ -81,7 +77,6 @@ $criminals = array(
         'name'=>'Matthew Mancuso',
         'age'=>'37',
         'depiction'=>'Long, white-skinned, blond hair, long beard',
-        'state'=>false,
         'id'=>10
     )
 
@@ -93,9 +88,7 @@ $criminals = array(
     $criminals_state = array(
     
     array(
-
-        'name'=>'John Gamlesk ',
-        'state' => true,
+        'state'=> true,
         'id'=>1
 
         
@@ -103,63 +96,67 @@ $criminals = array(
 
     array(
 
-        'name'=>'Michael Devlin',
-        'state' => true,
+        'state'=> true,
         'id'=>3
     ),
     array(
 
-        'name'=>'Cameron Janice Hook',
-        'state' => true,
+        'state'=> true,
         'id'=>5
     ),
 
 
     array(
 
-        'name'=>'Jenny',
-        'state' => true,
+        'state'=> true,
         'id'=>7
     ),
 
 
     array(
 
-        'name'=>'Josef Wirtzel',
-        'state' => true,
+        'state'=> true,
         'id'=>9
     )
 
 );
 
-    function GetCrimInfo(){
+
+
+
+$c_serial= $criminals[8]['id'];
+$c_state =$criminals_state[4]['id'];
+
+   function GetCrimInfo(){
         
         global $criminals;
-        global $criminals_state;
+        global $c_serial;
+        global $c_state;
 
-    foreach ($criminals as $crim_id=> $crim_serial){
-        
-        echo ' Name  :     '.$crim_serial['name'].',  Age   :    '.$crim_serial['age'].'  , The criminal serial number  : '.$crim_serial['id'].'<br>'.'  Depiction   :    '.$crim_serial['depiction'];
-            echo '<br>';
-            echo '<br>';
-        }
-    foreach ($criminals_state as $crim_id=> $crim_serial){
+       
+
+            if($c_serial && $criminals ){
+                echo $c_serial." found in the black list";
+                echo "<br>";
+
+                
+            }else{
+                echo "not found";
+                echo "<br>";
+
+            }
+            if($c_serial == $c_state){
+                echo " , Arrested ";
+                echo "<br>";
+            }else{
+                echo " , not Arrested";
+                echo "<br>";
+            }
 
 
-            $crim_state = $criminals_state;
-        
-            if ($crim_state){
-            
-            echo '    Arrested   : '.' The criminal serial number  : '.$crim_serial['id'];
-            echo '<br>';
 
-        }
+   }   
 
-    }
-
-    }
-
-    GetCrimInfo();
-
+GetCrimInfo();
 
 ?>
